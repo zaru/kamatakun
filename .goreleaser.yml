@@ -4,3 +4,9 @@ builds:
       - darwin
     goarch:
       - amd64
+  - binary: ningo
+    main: ningo/ningo.go
+    goos:
+      - darwin
+    goarch:
+      - amd64
