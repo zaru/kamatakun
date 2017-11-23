@@ -6,8 +6,8 @@
 
 int window_width;
 int window_height;
-int godzilla_width = 300;
-int godzilla_height = 200;
+int godzilla_width = 600;
+int godzilla_height = 333;
 
 void *NewWindow()
 {
@@ -46,19 +46,10 @@ void MakeKeyAndOrderFront(void *self) {
   BOOL isFlip = (rand == 0) ? YES : NO;
 
   NSMutableArray *iconImages = [[NSMutableArray alloc] init];
-  // NSString *name = isFlip ? @"kf" : @"k";
   int name = isFlip ? 20 : 10;
 
   for (int i=1; i<=2; i++) {
-    // NSString *imagePath = [NSString stringWithFormat:@"/Users/zaru/xcode/godzilla-sample/godzilla-sample/%@%d.png", name, i];
-    // NSImage *image = [[NSImage alloc] initWithContentsOfFile:imagePath];
-
-    // char *filename = [[NSString stringWithFormat:@"%s%d", name, i] UTF8String];
-    // NSURL *url = [NSURL URLWithString: [NSString stringWithCString: GetResources(@"f1") encoding:NSUTF8StringEncoding]];
-
     int filename = name + i;
-    // char *filename = [[NSString stringWithFormat:@"%s%d", name, i] UTF8String];
-    // NSString *filename = [NSString stringWithFormat:@"%s%d", name, i];
     NSURL *url = [NSURL URLWithString: GetResources(filename)];
     NSData *imageData = [NSData dataWithContentsOfURL:url];
     NSImage *image = [[NSImage alloc] initWithData:imageData];
@@ -93,22 +84,26 @@ void MakeKeyAndOrderFront(void *self) {
     animation1.toValue = [NSNumber numberWithFloat: 0 - godzilla_width];
   }
 
+  int jumpRand = arc4random_uniform(4) + 1;
+  int heightRand = arc4random_uniform(100) + 100;
+  int speedRand = arc4random_uniform(10) + 4;
+
   CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.y"];
   animation2.fromValue = @0.0f;
-  animation2.toValue = @100.0f;
-  animation2.beginTime = 1.0;
+  animation2.toValue = [NSNumber numberWithFloat: heightRand];
+  animation2.beginTime = jumpRand;
   animation2.duration = 0.2;
   animation2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 
   CABasicAnimation *animation3 = [CABasicAnimation animationWithKeyPath:@"position.y"];
-  animation3.fromValue = @100.0f;
+  animation3.fromValue = [NSNumber numberWithFloat: heightRand];
   animation3.toValue = @0.0f;
-  animation3.beginTime = 1.2;
+  animation3.beginTime = jumpRand + 0.2;
   animation3.duration = 0.3;
   animation3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 
   CAAnimationGroup *group = [CAAnimationGroup animation];
-  group.duration = 5.0;
+  group.duration = speedRand;
   group.repeatCount = HUGE_VALF;
   group.removedOnCompletion = NO;
   group.fillMode = kCAFillModeForwards;
