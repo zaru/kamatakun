@@ -24,6 +24,8 @@ void *NewWindow()
   window.titleVisibility = NSWindowTitleHidden;
   window.showsToolbarButton = NO;
   window.styleMask = NSBorderlessWindowMask;
+  [window setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorFullScreenAuxiliary];
+  [window setLevel: NSFloatingWindowLevel];
 
   window_width = window.frame.size.width;
   window_height = window.frame.size.height;
