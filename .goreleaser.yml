@@ -1,0 +1,6 @@
+builds:
+  - binary: kamatakun
+    goos:
+      - darwin
+    goarch:
+      - amd64
