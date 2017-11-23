@@ -85,7 +85,7 @@ void MakeKeyAndOrderFront(void *self) {
   }
 
   int jumpRand = arc4random_uniform(4) + 1;
-  int heightRand = arc4random_uniform(100) + 100;
+  int heightRand = arc4random_uniform(200) + 100;
   int speedRand = arc4random_uniform(10) + 4;
 
   CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.y"];
