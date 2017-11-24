@@ -4,8 +4,8 @@ builds:
       - darwin
     goarch:
       - amd64
-  - binary: ningo
-    main: ningo/ningo.go
+  - binary: kamatakun-cli
+    main: cli/kamatakun.go
     goos:
       - darwin
     goarch:
