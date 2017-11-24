@@ -23,5 +23,6 @@ brew:
     - fzf
   install: |
     bin.install 'kamatakun'
+    bin.install 'kamatakun-cli'
   test: |
     system "#{bin}/kamatakun"
