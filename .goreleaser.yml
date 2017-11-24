@@ -10,3 +10,19 @@ builds:
       - darwin
     goarch:
       - amd64
+brew:
+  github:
+    owner: zaru
+    name: kamatakun
+  commit_author:
+    name: goreleaserbot
+    email: goreleaser@carlosbecker.com
+  description: "kamata-kun!"
+  homepage: "https://github.com/zaru/kamatakun"
+  dependencies:
+    - fzf
+  install: |
+    bin.install Dir['kamatakun']
+    zsh_completion.install "misc/completions/zsh/_kamatakun"
+  test: |
+    system "#{bin}/kamatakun"
