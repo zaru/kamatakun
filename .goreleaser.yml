@@ -22,7 +22,6 @@ brew:
   dependencies:
     - fzf
   install: |
-    bin.install Dir['kamatakun']
-    zsh_completion.install "misc/completions/zsh/_kamatakun"
+    bin.install 'kamatakun'
   test: |
     system "#{bin}/kamatakun"
