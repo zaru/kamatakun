@@ -13,7 +13,7 @@ builds:
 brew:
   github:
     owner: zaru
-    name: kamatakun
+    name: homebrew-kamatakun
   commit_author:
     name: goreleaserbot
     email: goreleaser@carlosbecker.com
